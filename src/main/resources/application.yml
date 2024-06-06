@@ -1,0 +1,18 @@
+debug: false
+server:
+  port: 8080
+  
+spring:
+  application:
+    name: rest-api-demo
+  datasource:
+    url: jdbc:mysql://localhost:3306/employee_details?useSSL=false
+    username: root
+    password: SqlPassword@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
