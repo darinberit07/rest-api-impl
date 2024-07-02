@@ -33,4 +33,10 @@ public class GlobalExceptionHandler {
 		ExceptionDetails e = new ExceptionDetails(exe.getMessage()+" for this URI Endpoint", HttpStatus.BAD_REQUEST);
 		return new ResponseEntity<Object>(e, HttpStatus.BAD_REQUEST);
 	}
+	
+	@ExceptionHandler(value = HttpMessageNotReadableException.class)
+	public ResponseEntity<Object> handleHttpMessageNotReadableException(HttpMessageNotReadableException exe){
+		ExceptionDetails e = new ExceptionDetails(exe.getMessage()+" for this URI Endpoint", HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<Object>(e, HttpStatus.BAD_REQUEST);
+	}
 }
