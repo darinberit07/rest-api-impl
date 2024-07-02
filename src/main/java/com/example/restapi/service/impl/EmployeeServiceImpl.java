@@ -68,7 +68,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             throw new InvalidFieldsException("Employee name is invalid");
         }
         if (employee.getEmployeeDesignation() == null || employee.getEmployeeDesignation().isEmpty() || !isValidDesignation(employee.getEmployeeDesignation())) {
-            throw new InvalidFieldsException("Employee designation is invalid");
+            throw new InvalidFieldsException("Employee designation is invalid. Valid designations: Trainee/Intern/Employee");
         }
         if (employee.getEmployeeGrade() == null || employee.getEmployeeGrade().isEmpty() || !isValidGrade(employee.getEmployeeGrade())) {
             throw new InvalidFieldsException("Employee grade is invalid. Valid fields: T/A/B/C/D (grade is case sensitive)");
@@ -76,18 +76,21 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (employee.getEmployeeMobileNumber() == null || employee.getEmployeeMobileNumber().isEmpty() || !employee.getEmployeeMobileNumber().matches("\\d{10}")) {
             throw new InvalidFieldsException("Employee mobile number is invalid");
         }
+        if(employee.getEmployeeBillability() == null || employee.getEmployeeBillability().isEmpty() || !isValidBillability(employee.getEmployeeBillability())) {
+        	throw new InvalidFieldsException("Employee Billability Status is invalid. Valid fields: Billable/IP/Buffer/Intern");
+        }
     }
 	
 	public boolean isValidGrade(String empGrade) {
-		if(empGrade != "T" && empGrade!= "A" && empGrade != "B" && empGrade != "C" && empGrade != "D" )
-			return false;
-		return true;
+		return empGrade.equals("T") || empGrade.equals("A") || empGrade.equals("B") || empGrade.equals("C") || empGrade.equals("D");
 	}
 	
 	public boolean isValidDesignation(String desgn) {
-		if(desgn != "Trainee" && desgn != "Intern" && desgn != "Employee")
-			return false;
-		return true;
+		return desgn.equals("Trainee") || desgn.equals("Intern") || desgn.equals("Employee");
+	}
+	
+	public boolean isValidBillability(String bill) {
+		return bill.equals("Billable") || bill.equals("IP") || bill.equals("Buffer") || bill.equals("Intern");
 	}
 
 }
