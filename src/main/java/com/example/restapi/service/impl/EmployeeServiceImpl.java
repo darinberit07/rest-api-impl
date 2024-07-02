@@ -29,6 +29,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public List<EmployeeModel> getAllEmployeeDetails() {
+		if(employeeRepository.findAll().isEmpty()) {
+			throw new EmployeeDetailsNotFoundException("Database is empty, no record to fetch");
+		}
 		return employeeRepository.findAll();
 	}
 
@@ -50,12 +53,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public String deleteEmployeeDetails(String empId) {
+		if(employeeRepository.findById(empId).isEmpty()) {
+			throw new EmployeeDetailsNotFoundException("No record of employee "+empId+" is found in the database to delete");
+		}
 		employeeRepository.deleteById(empId);
 		return "Record deleted for EmployeeID: "+empId;
 	}
 
 	@Override
 	public String deleteAllEmployeeDetails() {
+		if(employeeRepository.findAll().isEmpty()) {
+			throw new EmployeeDetailsNotFoundException("Database is Empty, nothing to delete");
+		}
 		employeeRepository.deleteAll();
 		return "All employee records are successfully deleted";
 	}
