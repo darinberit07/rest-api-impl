@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.restapi.exception.EmployeeDetailsNotFoundException;
 import com.example.restapi.model.EmployeeModel;
 import com.example.restapi.repository.EmployeeRepository;
 import com.example.restapi.service.EmployeeService;
@@ -12,11 +13,14 @@ import com.example.restapi.service.EmployeeService;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 	
-	@Autowired(required = false)
+	@Autowired
 	private EmployeeRepository employeeRepository;
 
 	@Override
 	public EmployeeModel getEmployeeDetails(String empId) {
+		if(employeeRepository.findById(empId).isEmpty()) {
+			throw new EmployeeDetailsNotFoundException("No record of employee "+empId+" is found in the database");
+		}
 		return employeeRepository.findById(empId).get();
 	}
 
