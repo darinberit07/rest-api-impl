@@ -7,6 +7,9 @@ import com.example.restapi.model.EmployeeModel;
 public interface EmployeeService {
 	EmployeeModel getEmployeeDetails(String empId);
 	List<EmployeeModel> getAllEmployeeDetails();
+	List<EmployeeModel> getAllEmployeeDetailsByDesignation(String desgn);
+	List<EmployeeModel> getAllEmployeeDetailsByGrade(String grade);
+	List<EmployeeModel> getAllEmployeeDetailsByBillability(String billability);
 	String addEmployeeDetails(EmployeeModel employee);
 	String updateEmployeeDetails(String empId, EmployeeModel employee);
 	String deleteEmployeeDetails(String empId);

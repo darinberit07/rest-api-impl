@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.restapi.model.EmployeeModel;
@@ -30,6 +31,21 @@ public class EmployeeController {
 	@GetMapping("get/all")
 	public List<EmployeeModel> getAllEmployeeDetails(){
 		return employeeService.getAllEmployeeDetails();
+	}
+	
+	@GetMapping("get/designation")
+	public List<EmployeeModel> getAllEmployeeDetailsByDesignation(@RequestParam String desgn){
+		return employeeService.getAllEmployeeDetailsByDesignation(desgn);
+	}
+	
+	@GetMapping("get/grade")
+	public List<EmployeeModel> getAllEmployeeDetailsByGrade(@RequestParam String grade){
+		return employeeService.getAllEmployeeDetailsByGrade(grade);
+	}
+	
+	@GetMapping("get/billability")
+	public List<EmployeeModel> getAllEmployeeDetailsByBillability(@RequestParam String bill){
+		return employeeService.getAllEmployeeDetailsByBillability(bill);
 	}
 	
 	@PostMapping("add/new")

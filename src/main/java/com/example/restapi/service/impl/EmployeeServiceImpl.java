@@ -3,7 +3,6 @@ package com.example.restapi.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.example.restapi.exception.EmployeeDetailsConflictException;
@@ -33,6 +32,30 @@ public class EmployeeServiceImpl implements EmployeeService {
 			throw new EmployeeDetailsNotFoundException("Database is empty, no record to fetch");
 		}
 		return employeeRepository.findAll();
+	}
+	
+	@Override
+	public List<EmployeeModel> getAllEmployeeDetailsByDesignation(String desgn) {
+		if(employeeRepository.findAll().isEmpty()) {
+			throw new EmployeeDetailsNotFoundException("Database is empty, no record to fetch");
+		}
+		return employeeRepository.findByEmployeeDesignation(desgn);
+	}
+	
+	@Override
+	public List<EmployeeModel> getAllEmployeeDetailsByGrade(String grade) {
+		if(employeeRepository.findAll().isEmpty()) {
+			throw new EmployeeDetailsNotFoundException("Database is empty, no record to fetch");
+		}
+		return employeeRepository.findByEmployeeGrade(grade);
+	}
+
+	@Override
+	public List<EmployeeModel> getAllEmployeeDetailsByBillability(String billability) {
+		if(employeeRepository.findAll().isEmpty()) {
+			throw new EmployeeDetailsNotFoundException("Database is empty, no record to fetch");
+		}
+		return employeeRepository.findByEmployeeBillability(billability);
 	}
 
 	@Override
