@@ -70,6 +70,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public String updateEmployeeDetails(String empId, EmployeeModel employee) {
+		validateEmployee(employee);
 		employeeRepository.save(employee);
 		return "Employee record with Id: "+employee.getEmployeeId()+" is successfully updated";
 	}
