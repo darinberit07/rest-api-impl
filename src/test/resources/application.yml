@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: rest-api-demo
+    version: v1.0.0
+    description: A simple REST API demo applications, which performs CRUD operations
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+  #JPA settings
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
