@@ -9,8 +9,8 @@ spring:
     description: A simple REST API demo applications, which performs CRUD operations
   datasource:
     url: jdbc:mysql://localhost:3306/employee_details?useSSL=false
-    username: root
-    password: SqlPassword@123
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     open-in-view: false
@@ -18,3 +18,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+  security:
+    user:
+      name: user
+      password: password@123
