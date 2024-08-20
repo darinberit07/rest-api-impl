@@ -41,7 +41,7 @@ class EmployeeControllerTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		employee = new EmployeeModel("E001", "ABC", "Intern", "T", "1234567890", "Intern");
+		employee = new EmployeeModel("E001", "ABC", "Intern", "T", "1234567890");
 	}
 
 	@Test

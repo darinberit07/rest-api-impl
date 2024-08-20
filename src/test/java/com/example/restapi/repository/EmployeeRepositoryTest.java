@@ -21,7 +21,7 @@ class EmployeeRepositoryTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		employee = new EmployeeModel("E001", "ABC", "Intern", "T", "1234567890", "Intern");
+		employee = new EmployeeModel("E001", "ABC", "Intern", "T", "1234567890");
 		employeeRepository.save(employee);
 	}
 
@@ -32,22 +32,15 @@ class EmployeeRepositoryTest {
 	}
 
 	@Test
-	void testFindByEmployeeDesignation() {
+	void testFindByEmployeeDesignation_FOUND() {
 		List<EmployeeModel> empList = employeeRepository.findByEmployeeDesignation("Intern");
 		assertThat(empList.get(0).getEmployeeDesignation()).isEqualTo(employee.getEmployeeDesignation());
 		assertThat(empList.get(0).getEmployeeId()).isEqualTo(employee.getEmployeeId());
 	}
-
-	@Test
-	void testFindByEmployeeBillability_Found() {
-		List<EmployeeModel> empList = employeeRepository.findByEmployeeBillability("Intern");
-		assertThat(empList.get(0).getEmployeeBillability()).isEqualTo(employee.getEmployeeBillability());
-		assertThat(empList.get(0).getEmployeeId()).isEqualTo(employee.getEmployeeId());
-	}
 	
 	@Test
-	void testFindByEmployeeBillability_NotFound() {
-		List<EmployeeModel> empList = employeeRepository.findByEmployeeBillability("Buffer");
+	void testFindByEmployeeDesignation_NotFound() {
+		List<EmployeeModel> empList = employeeRepository.findByEmployeeDesignation("Employee");
 		assertThat(empList.isEmpty()).isTrue();
 	}
 	
