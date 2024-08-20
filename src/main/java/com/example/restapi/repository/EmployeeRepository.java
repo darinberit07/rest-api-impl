@@ -10,6 +10,5 @@ import com.example.restapi.model.EmployeeModel;
 @Repository
 public interface EmployeeRepository extends JpaRepository<EmployeeModel, String>{
 	List<EmployeeModel> findByEmployeeDesignation(String desgn);
-	List<EmployeeModel> findByEmployeeBillability(String billability);
 	List<EmployeeModel> findByEmployeeGrade(String grade);
 }

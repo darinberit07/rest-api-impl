@@ -25,19 +25,15 @@ public class EmployeeModel {
 	 @Column(name = "EMP_MOBILE_NO")
 	 private String employeeMobileNumber;
 	 
-	 @Column(name = "EMP_BILLABILITY")
-	 private String employeeBillability;
-	 
 	public EmployeeModel() {}
 
 	public EmployeeModel(String employeeId, String employeeName, String employeeDesignation, String employeeGrade,
-			String employeeMobileNumber, String employeeBillability) {
+			String employeeMobileNumber) {
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
 		this.employeeDesignation = employeeDesignation;
 		this.employeeGrade = employeeGrade;
 		this.employeeMobileNumber = employeeMobileNumber;
-		this.employeeBillability = employeeBillability;
 	}
 
 	public String getEmployeeId() {
@@ -79,15 +75,5 @@ public class EmployeeModel {
 	public void setEmployeeMobileNumber(String employeeMobileNumber) {
 		this.employeeMobileNumber = employeeMobileNumber;
 	}
-
-	public String getEmployeeBillability() {
-		return employeeBillability;
-	}
-
-	public void setEmployeeBillability(String employeeBillability) {
-		this.employeeBillability = employeeBillability;
-	}
-	 
-	
 	 
 }

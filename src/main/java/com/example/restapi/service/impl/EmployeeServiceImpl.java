@@ -51,14 +51,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public List<EmployeeModel> getAllEmployeeDetailsByBillability(String billability) {
-		if(employeeRepository.findAll().isEmpty()) {
-			throw new EmployeeDetailsNotFoundException("Database is empty, no record to fetch");
-		}
-		return employeeRepository.findByEmployeeBillability(billability);
-	}
-
-	@Override
 	public String addEmployeeDetails(EmployeeModel employee) {
 		if(employeeRepository.findById(employee.getEmployeeId()).isPresent()) {
 			throw new EmployeeDetailsConflictException("The Employee record for "+employee.getEmployeeId()+" already exists in the database");
@@ -108,9 +100,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         if (employee.getEmployeeMobileNumber() == null || employee.getEmployeeMobileNumber().isEmpty() || !employee.getEmployeeMobileNumber().matches("\\d{10}")) {
             throw new InvalidFieldsException("Employee mobile number is invalid");
-        }
-        if(employee.getEmployeeBillability() == null || employee.getEmployeeBillability().isEmpty() || !isValidBillability(employee.getEmployeeBillability())) {
-        	throw new InvalidFieldsException("Employee Billability Status is invalid. Valid fields: Billable/IP/Buffer/Intern");
         }
     }
 	

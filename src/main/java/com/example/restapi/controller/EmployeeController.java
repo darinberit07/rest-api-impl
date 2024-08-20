@@ -43,11 +43,6 @@ public class EmployeeController {
 		return employeeService.getAllEmployeeDetailsByGrade(grade);
 	}
 	
-	@GetMapping("get/billability")
-	public List<EmployeeModel> getAllEmployeeDetailsByBillability(@RequestParam String bill){
-		return employeeService.getAllEmployeeDetailsByBillability(bill);
-	}
-	
 	@PostMapping("add/new")
 	public String addEmployeeDetails(@RequestBody EmployeeModel employee) {
 		return employeeService.addEmployeeDetails(employee);
