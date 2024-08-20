@@ -3,9 +3,9 @@ This Employee Management project is a Spring Boot application designed to manage
 
 ## Features
 **Add New Employee:** Allows adding new employee records with details such as name, department, and salary.
-**View employee:** View an employee details using their ID
+**View employee:** View an employee details using their ID.
 **View Employee List:** Retrieve a list of all employees stored in the database.
-**View Employee Lists based on parameters:** Retrieve a list of employees based on grade, designation
+**View Employee Lists based on parameters:** Retrieve a list of employees based on grade, designation.
 **Update Employee Details:** Modify existing employee details.
 **Delete Employee:** Remove an employee record from the system.
 **Delete ALL Employees** Removes the entire records from the database.
