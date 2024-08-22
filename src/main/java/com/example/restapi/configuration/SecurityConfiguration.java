@@ -30,6 +30,8 @@ public class SecurityConfiguration {
 				.disable()
 			)
 			.authorizeHttpRequests(request -> request
+				.requestMatchers("/register")
+				.permitAll()
 				.anyRequest()
 				.authenticated()
 			)
