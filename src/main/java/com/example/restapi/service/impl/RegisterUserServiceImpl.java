@@ -22,8 +22,6 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 
 	@Override
 	public String registerUser(LoginCredentialsModel credentials) {
-		logger.info(credentials.getUsername());
-		logger.info(credentials.getPassword());
 		credentials.setPassword(encoder.encode(credentials.getPassword()));
 		repository.save(credentials);
 		return "New user registered";
