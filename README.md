@@ -10,6 +10,10 @@ This Employee Management project is a Spring Boot application designed to manage
 **Delete Employee:** Remove an employee record from the system.  
 **Delete ALL Employees** Removes the entire records from the database.
 
+**Security** 
+- Spring Security implemented with username-password login
+- **"/register"** endpoint registers a new user with username and password credentials, which is used to login
+
 ## Technologies Used
 - **Java 17**: Core programming language.
 - **Spring Boot 3.3.x**: Framework used to build the application.
@@ -27,3 +31,5 @@ This Employee Management project is a Spring Boot application designed to manage
 - **PUT** /employee/update/id/{id}
 - **DELETE** /employee/delete/id/{id}
 - **DELETE ALL** /employee/delete/all
+
+- **Register User** /register
