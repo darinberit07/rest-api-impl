@@ -21,6 +21,7 @@ This Employee Management project is a Spring Boot application designed to manage
 - **MySQL**: Database used for storing employee records.
 - **Apache Maven 3.9.7**: Dependency management.
 - **JUnit 5**: For unit testing the application.
+- **Spring Security 6**: Implemented basic level authentication
 
 ## API Endpoints
 - **GET** /employee/get/id/{id}
@@ -33,3 +34,6 @@ This Employee Management project is a Spring Boot application designed to manage
 - **DELETE ALL** /employee/delete/all
 
 - **Register User** /register
+
+## Unit Tests
+Written unit tests using JUnit 5 and Mockito for controller, service and repository classes.
